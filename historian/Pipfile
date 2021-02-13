@@ -1,0 +1,21 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[packages]
+asyncpg = "*"   # Main Postgres driver
+fastapi = "*"
+psycopg2 = "*"  # For migrations with `yoyo`
+pydantic = "*"
+uvicorn = {extras = ["standard"], version = "*"}
+yoyo-migrations = "*"
+
+[dev-packages]
+pylint = "*"
+pytest = "*"
+requests = "*"
+yapf = "*"
+
+[requires]
+python_version = "3.9.1"
