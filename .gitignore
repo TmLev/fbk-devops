@@ -1,0 +1,7 @@
+### Project ###
+## Directories
+.idea
+__pycache__
+
+## Files
+.DS_Store
