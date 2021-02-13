@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  postgres:
+    image: postgres:13-alpine
+    env_file:
+      - .env
+
+  historian:
+    build:
+      context: .
+      dockerfile: historian/Dockerfile
+    env_file:
+      - .env
+
+  test-historian:
+    build:
+      context: .
+      dockerfile: historian/Dockerfile
+    env_file:
+      - .env
+    command: "pytest -vs"
+
+  nginx:
+    image: nginx:1.19-alpine
+    volumes:
+      - ./nginx/generated/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - $NGINX_PORT:80
